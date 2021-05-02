@@ -45,7 +45,7 @@ class BongjiCam:
                     self.remaining_time = 15
 
                     if not self.is_recording:
-                        self.camera.start_recording(time.strftime("bongji_cam_%Y-%m-%d_%H_%M_%S") + ".h264")
+                        self.camera.start_recording(time.strftime("/videos/bongji_cam_%Y-%m-%d_%H_%M_%S") + ".h264")
                         logging.info("Start recording.")
                         self.is_recording = True
 
