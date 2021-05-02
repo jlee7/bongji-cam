@@ -41,7 +41,7 @@ class BongjiCam:
         logging.info("Start Motion detection loop.")
         try:
             while True:
-                if (0 == GPIO.input(self.ObstaclePin)):
+                if GPIO.input(self.ObstaclePin:
                     self.remaining_time = 15
 
                     if not self.is_recording:
