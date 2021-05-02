@@ -12,7 +12,7 @@ class BongjiCam:
         self.ObstaclePin = 23
 
         # Variables
-        self.remaining_time = 10
+        self.remaining_time = 15
         self.is_recording = False
 
         # CameraControl
@@ -38,11 +38,11 @@ class BongjiCam:
         logging.info("Setup finished.")
 
     def loop(self):
-        logging.info("Start IRObstacle loop.")
+        logging.info("Start Motion detection loop.")
         try:
             while True:
                 if (0 == GPIO.input(self.ObstaclePin)):
-                    self.remaining_time = 10
+                    self.remaining_time = 15
 
                     if not self.is_recording:
                         self.camera.start_recording(time.strftime("bongji_cam_%Y-%m-%d_%H_%M_%S") + ".h264")
@@ -51,7 +51,7 @@ class BongjiCam:
 
         except KeyboardInterrupt:
             self.destroy()
-            logging.info("Stop IRObstacle loop.")
+            logging.info("Stop Motion detection loop.")
 
     def destroy(self):
         GPIO.cleanup()
